@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Parent Component">
+        <div class="slds-p-around_medium"> 
+        <p>This Value came from Child: {showDetailOfChild}</p>
+        <C-child-to-trigger-event onsendproductselected={handleProductSelection}></C-child-to-trigger-event>
+        </div>
+
+    </lightning-card>
+</template>

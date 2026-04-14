@@ -1,0 +1,46 @@
+<template>
+    <lightning-card title="User Registration" icon-name="standard:contact">
+        <div class="slds-p-around_medium">
+
+            <!-- Registration Number Input -->
+            <lightning-input
+                label="Registration Number (Auto Number)"
+                value={name}
+                onchange={handleNameChange}>
+            </lightning-input>
+
+
+            <lightning-radio-group
+                name="gender"
+                label="Gender"
+                options={genderOptions}
+                value={gender}
+                type="radio"
+                onchange={handleGenderChange}>
+            </lightning-radio-group>
+
+            <lightning-combobox
+                label="City"
+                value={Selectedcity}
+                options={cityOptions}
+                onchange={handleCityChange}>
+            </lightning-combobox>
+
+            <lightning-dual-listbox
+                name="qualifications"
+                label="Qualifications"
+                source-label="Available"
+                selected-label="Selected"
+                options={qualificationOptions}
+                value={qualifications}
+                onchange={handleQualificationChange}>
+            </lightning-dual-listbox>
+
+            <lightning-button label="Save" onclick={handleSubmit}></lightning-button>
+            <lightning-button style="margin-left: 1rem;" label="Search" onclick={handleSearch}></lightning-button>
+            
+            <lightning-button style="margin-left: 1rem;" label="Clear" onclick={clearform}></lightning-button>
+            
+        </div>
+    </lightning-card>
+</template>

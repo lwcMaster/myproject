@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Static Resources">
+    <template for:each={formattedArray} for:item="disp">
+    <div key ={disp.id}> 
+       <p>Id:{disp.id} Name:{disp.name} age:{disp.age}</p>
+        
+     <P>This Example of Static Resources</P>
+     <p>The current Salesforce user is: {currentUser}</p>
+    </div>
+
+</template>
+ 
+    </lightning-card>
+
+    
+</template>

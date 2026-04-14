@@ -1,0 +1,15 @@
+<template>
+    <lightning-card class="slds-card"  title="One Way Binding">            
+            <p>Hey this my text{myStatus}</p>
+    </lightning-card>
+    <lightning-card class="slds-card" title="Two way Binding">
+            <lightning-input class="slds-p-around_medium lgc-bg"
+            type="text" label="Enter some text" value={myStatus} onchange="{showMyStatus}">
+             </lightning-input>
+            <p> Value Type is: {myStatus}</p>
+    </lightning-card> 
+
+    <lightning-card class="slds-card"  title="Getter & Setter">            
+            <p> {handleMinutesWatched} </p>
+    </lightning-card>
+</template>  

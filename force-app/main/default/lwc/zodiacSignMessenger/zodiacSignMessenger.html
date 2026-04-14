@@ -1,0 +1,37 @@
+<template>
+
+    <Lightning-card title="Zodiac Sign Messenger">
+        
+        <div class="slds-m-top_medium slds-m-bottom_x-small">
+
+            <!-- Default/basic -->
+            <div class="slds-p-around_small lgc-bg">
+                <lightning-input type="text" value={name} onchange={handleNameChange}
+                    label="Enter Your Name"></lightning-input>
+            </div>
+
+            <div class="slds-p-around_small lgc-bg">
+
+                <lightning-input type="date" value={userBirthDate} onchange={handleDateChange}
+                    label="Enter Date of Birth:"> </lightning-input>
+
+            </div>
+
+            <lightning-button label="Submit" title="Submit" onclick={handleSubmit}
+                class="slds-align_absolute-center"></lightning-button>
+
+        </div>
+        <template if:true={userProfile}>
+            <div class="slds-p-around_medium">
+                <h2>Hello {name} 👋</h2>
+                <p><strong>Sign:</strong> {userProfile.sign} {userProfile.emoji}</p>
+                <p><strong>Trait:</strong> {userProfile.trait}</p>
+            </div>
+        </template>
+
+
+        
+    </Lightning-card>
+
+
+</template>
