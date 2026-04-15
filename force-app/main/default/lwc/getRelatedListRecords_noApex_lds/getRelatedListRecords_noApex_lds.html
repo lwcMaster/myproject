@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Related Opportunities_LDS" icon-name="standard:opportunity">
+        <div class="slds-var-m-around_medium">
+            <template if:true={records}>
+                <ul class="slds-list_dotted">
+                    <template for:each={records} for:item="opp">
+                        <li key={opp.id}>
+                            Name:{opp.fields.Name.value}
+                            Stage:{opp.fields.StageName.value} 
+                        </li>
+                    </template>
+                </ul>
+            </template>
+
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error fetching opportunities.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
