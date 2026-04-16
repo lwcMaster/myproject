@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="CreateRecord Without Apex & LDS">
+
+        <div class="slds-p-around_medium">
+        <lightning-input type="text" label="Subject" value={subject} onchange={handleSubjectChange} required></lightning-input>                
+        
+        <lightning-combobox
+         name="Priority" 
+         label="Priority" 
+         value={priority}
+         placeholder="Choose Priority"
+         onchange={handlePriorityChange} 
+         options={options}>
+        </lightning-combobox>
+        
+        <lightning-textarea label="Description" name="Description" value={description} onchange={handleDescriptionChange}></lightning-textarea>
+        </div>
+
+        <lightning-button class="slds-m-left_medium" label="Save" onclick={handlesave} variant="brand"></lightning-button>
+
+    </lightning-card>
+</template>
