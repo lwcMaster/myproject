@@ -1,0 +1,28 @@
+<template>
+    <!-- Here we have readonly mode on by default or we can define readOnly/edit in record view form tag --> -->
+   <!-- for edit mode we need to define inputfilds instead of output fields -->
+    <!-- and instead record view we need to uselightning record edit form -->
+
+    <lightning-card title="CustomRecordView" class="slds-p-around_medium">
+        <lightning-record-view-form record-id={recordId} object-api-name={objectApiName}>
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="OwnerId"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="CaseNumber"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="Status"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="Reason"></lightning-output-field>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-output-field field-name="Priority"></lightning-output-field>
+                </div>
+                
+            </div>
+        </lightning-record-view-form>
+    </lightning-card>
+</template>

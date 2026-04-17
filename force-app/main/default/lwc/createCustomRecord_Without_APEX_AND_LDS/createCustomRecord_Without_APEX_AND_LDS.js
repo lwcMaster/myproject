@@ -4,6 +4,7 @@ import CASE_SUBJECT from '@salesforce/schema/Case.Subject';
 import CASE_DESCRIPTION from '@salesforce/schema/Case.Description';
 import CASE_PRIORITY from '@salesforce/schema/Case.Priority';
 import { createRecord } from 'lightning/uiRecordApi';
+import { getObjectInfo } from 'lightning/uiObjectInfoApi';
 
 
 export default class CreateCustomRecord_Without_APEX_AND_LDS extends LightningElement {
@@ -39,13 +40,13 @@ export default class CreateCustomRecord_Without_APEX_AND_LDS extends LightningEl
 
     }
 
-    async handlesave(){
+     async handlesave(){
         const fields = {};
         fields[CASE_SUBJECT.fieldApiName] = this.subject;
         fields[CASE_DESCRIPTION.fieldApiName] = this.description;
         fields[CASE_PRIORITY.fieldApiName] = this.priority;
         
-         //const record = await createRecord({ apiName: ACCOUNT_OBJECT.objectApiName, fields });
+        //const record = await createRecord({ apiName: ACCOUNT_OBJECT.objectApiName, fields });
          let recordInput = {apiName: Case_object.objectApiName, fields}
          await createRecord(recordInput)
          .then((record) => {
@@ -60,4 +61,4 @@ export default class CreateCustomRecord_Without_APEX_AND_LDS extends LightningEl
     }
 
     
-}
+} 

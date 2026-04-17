@@ -1,23 +1,34 @@
 import { LightningElement, api, wire } from 'lwc';
 import { getRelatedListRecords } from 'lightning/uiRelatedListApi';
+import { NavigationMixin } from 'lightning/navigation'; // Import this!
 
-export default class GetRelatedListRecords_noApex_lds extends LightningElement {
+export default class GetRelatedListRecords_noApex_lds extends NavigationMixin(LightningElement) {
     @api recordId;
-    error;
     records;
+    error;
 
     @wire(getRelatedListRecords, {
         parentRecordId: '$recordId',
-        relatedListId: 'Opportunities', 
-        fields: ['Opportunity.Name', 'Opportunity.StageName']
+        relatedListId: 'Opportunities',
+        fields: ['Opportunity.Id', 'Opportunity.Name', 'Opportunity.StageName']
     })
-    wiredRecords({ error, data }) { // 1. Renamed this to avoid conflict with 'records' variable
-        if(data) { // 2. 'if' must be lowercase
+    wiredRelatedRecords({ error, data }) {
+        if (data) {
             this.records = data.records;
-            this.error = undefined;
-        } else if(error) { // 3. 'else if' must be two separate words
+        } else if (error) {
             this.error = error;
-            this.records = undefined;
         }
+    }
+
+    // This function handles the "Jump" logic
+    navigateToOpp(event) {
+        const oppId = event.target.dataset.id; // Get ID from the clicked element
+        this[NavigationMixin.Navigate]({
+            type: 'standard__recordPage',
+            attributes: {
+                recordId: oppId,
+                actionName: 'view'
+            }
+        });
     }
 }
